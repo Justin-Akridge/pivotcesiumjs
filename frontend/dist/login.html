@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <script type="module" crossorigin src="/assets/login-CgUbnE94.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="stylesheet" crossorigin href="/assets/login-DygEUrLP.css">
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <div class="text-center">
+        <h1 class="title">Login</h1>
+        <p class="description">
+          Enter your email below to login to your account
+        </p>
+      </div>
+      <form id="login-form" class="login-form">
+        <div class="input-group">
+          <label for="email" class="label">Email</label>
+          <input
+            type="email"
+            id="email"
+            class="input"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <label for="password" class="label">Password</label>
+          <input
+            type="password"
+            id="password"
+            class="input"
+            required
+          />
+        </div>
+        <div id="error-message" class="error-message"></div>
+        <div class="forgot-password">
+          <a href="/forgot-password" class="link">Forgot your password?</a>
+        </div>
+        <button type="submit" class="submit-button">Login</button>
+      </form>
+    </div>
+    <div class="sidebar">
+      <div class="background-overlay"></div>
+      <div class="content">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="logo-icon"
+        >
+          <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"></path>
+        </svg>
+        <div class="company-name">Pivot Inc</div>
+        <blockquote class="testimonial">
+          <p class="quote">
+            &ldquo;This software has saved my team countless hours of work compared to traditional field collection. 
+            Aerial lidar is the future of field collection.&rdquo;
+          </p>
+          <footer class="author">Sofia Davis</footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

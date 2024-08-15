@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pivot Powerlines</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.120/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.120/Build/Cesium/Cesium.js"></script>
+  <script type="module" crossorigin src="/assets/main-CrtBpUYy.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="stylesheet" crossorigin href="/assets/main-CtvmiX7o.css">
+</head>
+<body>
+  <nav class="nav-bar">
+    <ul class="left-container">
+      <li class="tabs" id="file">File</li>
+      <ul id="file-dropdown" class="tabs-dropdown">
+        <li id="new-job-tab">New</li>
+        <li>Open</li>
+        <li>Recent</li>
+        <li id="separator"></li>
+        <li>Save</li>
+        <li>Save As</li>
+        <li id="separator"></li>
+        <li>Export..</li>
+        <li>Export as</li>
+        <li>Send</li>
+        <li id="separator"></li>
+        <li>Exit</li>
+      </ul>
+      <li class="tabs" id="edit">Edit</li>
+      <ul id="edit-dropdown" class="tabs-dropdown">
+        <li>New</li>
+        <li>Open</li>
+        <li>Recent</li>
+        <li id="separator"></li>
+        <li>Save</li>
+        <li>Save As</li>
+        <li id="separator"></li>
+        <li>Export..</li>
+        <li>Export as</li>
+        <li>Send</li>
+        <li id="separator"></li>
+        <li>Exit</li>
+      </ul>
+      <li class="tabs" id="environments">Assets</li>
+      <ul id="environments-dropdown" class="tabs-dropdown">
+        <li>Load poles from assets</li>
+        <li>Load midspans from assets</li>
+      </ul>
+      <li class="tabs" id="view">view</li>
+      <ul id="view-dropdown" class="tabs-dropdown">
+        <li>
+          <input type="checkbox" id="perspective-view-checkbox" name="perspective-view" checked="true"/>
+          <label for="perspective-view-checkbox">perspective</label>
+        </li>
+        <li>
+          <input type="checkbox" id="map-view-checkbox" name="map-view" />
+          <label for="map-view">map</label>
+        </li>
+        <li>
+          <input type="checkbox" id="profile-view-checkbox" name="profile-view" />
+          <label for="profile-view">profile</label>
+        </li>
+        <li>
+          <input type="checkbox" id="imagery-view-checkbox" name="imagery-view" />
+          <label for="imagery-view">imagery</label>
+        </li>
+      </ul>
+      <li class="tabs" id="settings">settings</li>
+      <ul id="settings-dropdown" class="tabs-dropdown">
+        <li>New</li>
+        <li>Open</li>
+        <li>Recent</li>
+        <li id="separator"></li>
+        <li>Save</li>
+        <li>Save As</li>
+        <li id="separator"></li>
+        <li>Export..</li>
+        <li>Export as</li>
+        <li>Send</li>
+        <li id="separator"></li>
+        <li>Exit</li>
+      </ul>
+      <li class="tabs" id="help">help</li>
+      <ul id="help-dropdown" class="tabs-dropdown">
+        <li>Contact Us</li>
+        <li>faqs</li>
+      </ul>
+    </ul>
+    <div class="middle-container">
+    </div>
+    <div class="right-container"> 
+      <i class="fa-solid fa-gear"></i>
+    </div>
+  </nav>
+    <div class="app-container">
+      <ul class="tool-container">
+        <li class="material-symbols-outlined">
+          arrow_selector_tool
+        </li>
+        <li class="material-symbols-outlined">
+          drag_pan
+        </li>
+        <li class="material-symbols-outlined">
+          straighten
+        </li>
+        <li class="material-symbols-outlined">
+          edit
+        </li>
+        <li class="material-symbols-outlined">
+          design_services
+        </li>
+        <li class="material-symbols-outlined">
+          info
+        </li>
+      </ul>
+      <!-- open jobs modal-->
+      <div id="myModal">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <h2>Create new job</h2>
+          <form class="job-form">
+            <div>
+              <label for="job-name">Job Name:</label>
+              <input type="text" class="job-name" name="job-name" placeholder="Enter job Name" required/>
+            </div>
+            <div>
+              <label for="company-name">Company:</label>
+              <input type="text" class="company-name" name="company-name" placeholder="Enter job title" required/>
+            </div>
+            <button class="button" type="submit">Create Job</button>
+          </form>
+      </div>
+    </div>
+      <div id="cesium-container">
+        <div id="maps-container">
+          <div id="map"></div>
+          <div id="cesium"></div>
+        </div>
+        <div id="profile-view">profile</div>
+      </div>
+      <div id="assets-container">
+        <h4>Current Asset: <span>No asset selected</span></h4>
+      </div>
+    </div>
+  </body>
+  <!-- prettier-ignore -->
+  <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+      ({key: "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg", v: "weekly"})
+  </script>
+</body>
+</html>
